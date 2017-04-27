@@ -8,7 +8,7 @@ require.config({
 	//the paths config could be for a directory.
 	paths: {
 		jquery: 'lib/jquery',
-		text: 'common/text',
+		text: 'lib/text',
 		addp: 'common/addp',
 		sendCode:'compts/send_code/send_code'
 	}

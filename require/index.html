@@ -7,32 +7,33 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 		<title>requireJs回顾</title>
 		<style type="text/css">
-			.sendcode-wrapper,
-			.addp-wrapper {
+			.well {
 				width: 300px;
-				height: 100px;
-				margin-top: 20px;
-				border: 1px solid #e6e6e6;
-				border-radius: 10px;
-				background-color: #ccc;
+				min-height: 20px;
+				padding: 19px;
+				margin-bottom: 20px;
+				background-color: #f5f5f5;
+				border: 1px solid #e3e3e3;
+				border-radius: 4px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 			}
 		</style>
 	</head>
 
 	<body>
-		<div class="sendcode-wrapper">
-			发送验证码组件
+		<div class="well">
+			<h3>发送验证码组件</h3>
 			<div id="sendCodeWrapper"></div>
 		</div>
-		<div class="addp-wrapper">
-			插入指定内容到body
-			</br>
+		<div class="well">
+			<h3>插入指定内容到body</h3>
 			<input type="text" name="" id="text" value="" />
 			<input type="button" name="" id="btn" value="插入" />
 		</div>
 
-		<script src="js/require.js"></script>
-		<script src="js/main.js"></script>
+		<script src="js/lib/require.js"></script>
+		<script src="js/lib/main.js"></script>
 		<script type="text/javascript">
 			require(['jquery', 'addp'], function($, addp) {
 				$(function() {
