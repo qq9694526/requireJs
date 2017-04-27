@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+		<title>requireJs回顾</title>
+		<style type="text/css">
+			.sendcode-wrapper,
+			.addp-wrapper {
+				width: 300px;
+				height: 100px;
+				margin-top: 20px;
+				border: 1px solid #e6e6e6;
+				border-radius: 10px;
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="sendcode-wrapper">
+			发送验证码组件
+			<div id="sendCodeWrapper"></div>
+		</div>
+		<div class="addp-wrapper">
+			插入指定内容到body
+			</br>
+			<input type="text" name="" id="text" value="" />
+			<input type="button" name="" id="btn" value="插入" />
+		</div>
+
+		<script src="js/require.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/javascript">
+			require(['jquery', 'addp'], function($, addp) {
+				$(function() {
+					$("#btn").on("click", function() {
+						var html = '<div><span></span>' + $("#text").val() + '<button class="delete">移除</button></div>'
+						addp.setHtml(html);
+					})
+					$("body").on("click", ".delete", function() {
+						$(this).parent().remove();
+					})
+				})
+			})
+			require(['sendCode'], function(sendCode) {
+				var config = {
+					el: "#sendCodeWrapper"
+				}
+				var sendCode = new sendCode(config);
+			})
+		</script>
+	</body>
+
+</html>
