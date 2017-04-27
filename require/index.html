@@ -8,10 +8,12 @@
 		<title>requireJs回顾</title>
 		<style type="text/css">
 			.well {
+				display: inline-block;
+				vertical-align: top;
 				width: 300px;
 				min-height: 20px;
 				padding: 19px;
-				margin-bottom: 20px;
+				margin: 20px;
 				background-color: #f5f5f5;
 				border: 1px solid #e3e3e3;
 				border-radius: 4px;
@@ -23,11 +25,14 @@
 
 	<body>
 		<div class="well">
-			<h3>发送验证码组件</h3>
+			<div id="hdbWrapper"></div>
+		</div>
+		<div class="well">
+			<h3>sendCode发送验证码组件</h3>
 			<div id="sendCodeWrapper"></div>
 		</div>
 		<div class="well">
-			<h3>插入指定内容到body</h3>
+			<h3>addp方法：插入指定内容到body</h3>
 			<input type="text" name="" id="text" value="" />
 			<input type="button" name="" id="btn" value="插入" />
 		</div>
@@ -51,6 +56,12 @@
 					el: "#sendCodeWrapper"
 				}
 				var sendCode = new sendCode(config);
+			})
+			require(['hdbStudy'],function(hdbStudy){
+				var config = {
+					el: "#hdbWrapper"
+				}
+				var hdbStudy = new hdbStudy(config);
 			})
 		</script>
 	</body>

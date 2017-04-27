@@ -8,8 +8,10 @@ require.config({
 	//the paths config could be for a directory.
 	paths: {
 		jquery: 'lib/jquery',
+		hdb:'lib/handlebars_v4.0.4',
 		text: 'lib/text',
 		addp: 'common/addp',
-		sendCode:'compts/send_code/send_code'
+		sendCode:'compts/send_code/send_code',
+		hdbStudy:'compts/hdb_study/hdb_study'
 	}
 });
