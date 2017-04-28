@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>深入理解Call方法</title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			//使用apply的例子
+			function foo() {
+				console.log('我是陈海，我拍床戏去了');
+			}
+
+			function beforeFoo(num, text) {
+				console.log('侯亮平知道陈海有床戏,一共' + num + '场,', text);
+			}
+			var fooOld = foo;
+			foo = function() {
+				beforeFoo.apply(this, arguments); //陆亦可修改了这里
+				fooOld();
+			}
+			foo(30, '醒不过来'); //运行一下看看效果
+		</script>
+		<script type="text/javascript">
+			//构造函数1
+			function Obj1(numA, numB) {
+				this.numA = numA;
+				this.numB = numB;
+				this.say=function(){
+					console.log(this.numA);
+				}
+			}
+			//在构造函数1原型中添加add方法
+			Obj1.prototype.add = function() {
+				console.log(this.numA + this.numB)
+			}
+			//构造函数2，只有属性没有方法
+			function Obj2(numA, numB) {
+				this.numA = numA;
+				this.numB = numB;
+			}
+			//实例化对象
+			var obj1 = new Obj1(1, 2);
+			var obj2 = new Obj1(3, 4);
+			//使用call让obj2执行obj1的方法
+			obj1.add.call(obj2);//执行成功，结果为7
+			//看看obj2是否继承了obj1
+			console.log(obj2.say);
+			console.log(obj2.add);//结果:是的
+		</script>
+	</body>
+
+</html>
