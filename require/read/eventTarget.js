@@ -31,6 +31,7 @@ define(function(){
             if (this._listeners[event.type] instanceof Array){
                 var listeners = this._listeners[event.type];
                 for (var i=0, len=listeners.length; i < len; i++){
+                	//借用数组的slice方法获取除掉event以外的参数数组
                     listeners[i].apply(this, [].slice.call(arguments, 1));
                 }
             }

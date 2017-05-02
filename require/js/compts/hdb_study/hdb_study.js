@@ -7,7 +7,7 @@ define(['jquery','hdb', 'text!compts/hdb_study/hdb_study.tpl'], function($,hdb, 
 		var context = {
 			name: "赵海鹏",
 			content: "Handlebars 是 JavaScript 一个语义模板库，通过对view和data的分离来快速构建Web模板。",
-			list:["#each列表渲染","#if条件渲染","#with选择数据范围","../访问父级属性"]
+			list:["#each列表渲染","#if条件渲染","#with选择数据范围","../访问父级属性","@index/key获取当前索引"]
 		};
 		//匹配json内容
 		var html = template(context);
