@@ -99,7 +99,7 @@ define([
     	//给已完成的步骤绑定
         this.$el.on('click','.sn-step>.sn-stepbar>li>.step-done>.step-num',$.proxy(function(e,nextIndex,nowIndex,res){
             itemsClick.call(this,e,nextIndex,nowIndex,res);//使用process执行itemsClick
-            this.trigger('itemsClick',[e,nextIndex,nowIndex,res]);//
+            this.trigger('itemsClick',[e,nextIndex,nowIndex,res]);//触发使用on绑定在process上的同名事件
         },this));
         //给当前步骤绑定
         this.$el.on('click','.sn-step>.sn-stepbar>li>.step-current>.step-num',$.proxy(function(e,nextIndex,nowIndex,res){

@@ -23,6 +23,7 @@ define(function(){
             if (!event.target){
                 event.target = this;
             }
+//			event={ type: event,target:this}
 
             if (!event.type){  //falsy
                 throw new Error("Event object missing 'type' property.");
