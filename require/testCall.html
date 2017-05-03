@@ -7,18 +7,16 @@
 	</head>
 
 	<body>
-<script type="text/javascript">
-function getEventTrigger(event)
-  { 
-  x=event.currentTarget; 
-  alert("The id of the triggered element: "
-  + x.id);
-  }
-</script>
+		<script type="text/javascript">
+			function getEventTrigger(event) {
+				x = event.currentTarget;
+				alert("The id of the triggered element: " +
+					x.id);
+			}
+		</script>
 
-<p id="p1" onmousedown="getEventTrigger(event)">
-Click on this paragraph. An alert box will
-show which element triggered the event.</p>
+		<p id="p1" onmousedown="getEventTrigger(event)">
+			Click on this paragraph. An alert box will show which element triggered the event.</p>
 		<script type="text/javascript">
 			//使用apply的例子
 			function foo() {
@@ -40,7 +38,7 @@ show which element triggered the event.</p>
 			function Obj1(numA, numB) {
 				this.numA = numA;
 				this.numB = numB;
-				this.say=function(){
+				this.say = function() {
 					console.log(this.numA);
 				}
 			}
@@ -57,21 +55,31 @@ show which element triggered the event.</p>
 			var obj1 = new Obj1(1, 2);
 			var obj2 = new Obj1(3, 4);
 			//使用call让obj2执行obj1的方法
-			obj1.add.call(obj2);//执行成功，结果为7
+			obj1.add.call(obj2); //执行成功，结果为7
 			//看看obj2是否继承了obj1
 			console.log(obj2);
-			obj1.say.call(obj2);//结果是3
+			obj1.say.call(obj2); //结果是3
 		</script>
 		<script type="text/javascript">
-			//测试obj会不会继承window对象
-			function sayHi(){
-				console.log("hi,my name is "+this.name);
+			function sayHi(name) {
+				console.log("hi,my name is " + this.name);
 			}
-			function Obj(name){
-				this.name=name;
+			var EventTarget = function() {
+				this._listeners = {};
 			}
-			var obj=new Obj('zhp');
-			window.sayHi.call(obj);
+			EventTarget.prototype = {
+				on: function() {
+					console.log("on");
+				}
+			}
+
+			function Obj(name) {
+				this.name = name;
+			}
+			var obj = new Obj('zhp');
+			var obje=new EventTarget();
+			console.log(obje)
+			obje.call(obj);
 			console.log(obj)
 		</script>
 	</body>
